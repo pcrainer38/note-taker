@@ -38,16 +38,16 @@ app.post('/api/notes', (req, res) => {
   
     fs.readFile('./db/db.json', 'utf-8', (err, data) => {
       if(err) console.log(err);
-  
+      
       const notes = JSON.parse(data);
       notes.push(req.body);
-  
-      fs.writeFile('./db/db.json', JSON.stringify(notes, null, 4), () => {
-      console.log('Success!!')
-      res.send('Test')
-    })
-    })
-})
+      
+      fs.writeFile('./db/db.json', JSON.stringify(notes), () => {
+      console.log('Success!!');
+      res.send('Test');
+    });
+    });
+});
   
   app.listen(PORT, () =>
     console.log(`App listening at http://localhost:${PORT}`)
