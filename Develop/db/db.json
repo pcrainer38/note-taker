@@ -6,5 +6,9 @@
     {
         "title": "Second Note",
         "text": "Another Note"
+    },
+    {
+        "title": "Note Three",
+        "text": "This is another note"
     }
 ]
