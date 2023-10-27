@@ -30,8 +30,13 @@ res.sendFile(path.join(__dirname, './public/index.html'))
 
 //API routes
 app.get('/api/notes', (req, res) => {
-    res.sendFile(path.join(__dirname, './db/db.json'))
-  });
+    fs.readFile('./db/db.json', 'utf-8', (err, data) => {
+      if(err) console.log(err);
+
+       res.json(JSON.parse(data));
+    })
+  })
+ 
   
 app.post('/api/notes', (req, res) => {
     console.log(req.body);
@@ -41,10 +46,11 @@ app.post('/api/notes', (req, res) => {
       
       const notes = JSON.parse(data);
       notes.push(req.body);
-      
+      console.log(notes);
       fs.writeFile('./db/db.json', JSON.stringify(notes), () => {
       console.log('Success!!');
-      res.send('Test');
+      // res.send('Test');
+      res.sendFile(path.join(__dirname, "./public/notes.html"))
     });
     });
 });
