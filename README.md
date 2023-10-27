@@ -7,6 +7,10 @@
   
   This application allows the user to add notes to a list to remind them of important events.
 
+  ## Link
+
+  https://rocky-lake-87096-1a0cb59ac255.herokuapp.com/
+  
   ## Table of Contents 
   - [Installation](#installation) 
   - [Usage](#usage) 
@@ -17,11 +21,17 @@
 
   ## Installation Instructions 
   
-  You will need to install a code editor like Visual Studio Code, node.js and then install express.js and uuid. 
+  No installation necessary.  Follow the link above in the Link heading.
 
   ## Usage 
  
   Start the server in an integrated terminal in the code editor by typing node server.js.  Pull up the note taker in a browser at localhost:3001. Press the "+" in the top right of the screen to start a new note, type the title and then the note and then click the save icon in the top right of the screen.  This will add the new note to the list on the left.
+
+  ## Images
+
+![Alt text](<images/Note-Taker (1).png>)
+
+![Alt text](<images/Note-Taker (2).png>)
 
   ## Contributing   
  
