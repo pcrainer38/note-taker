@@ -29,7 +29,7 @@ res.sendFile(path.join(__dirname, './public/index.html'))
 );
 
 //API routes
-app.get('/Develop/api/notes', (req, res) => {
+app.get('/api/notes', (req, res) => {
     res.sendFile(path.join(__dirname, './db/db.json'))
   });
   
