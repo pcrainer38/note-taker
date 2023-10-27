@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+const routes = require('./public/routes/notes');
 
 const PORT = process.env.PORT || 3001;
 
@@ -23,37 +24,13 @@ app.get('/notes', (req, res) =>
     res.sendFile(path.join(__dirname, './public/notes.html'))
 );
 
+app.use('/api', routes)
+
 // GET route for homepage
 app.get('*', (req, res) => 
 res.sendFile(path.join(__dirname, './public/index.html'))
 );
 
-//API routes
-app.get('/api/notes', (req, res) => {
-    fs.readFile('./db/db.json', 'utf-8', (err, data) => {
-      if(err) console.log(err);
-
-       res.json(JSON.parse(data));
-    })
-  })
- 
-  
-app.post('/api/notes', (req, res) => {
-    console.log(req.body);
-  
-    fs.readFile('./db/db.json', 'utf-8', (err, data) => {
-      if(err) console.log(err);
-      
-      const notes = JSON.parse(data);
-      notes.push(req.body);
-      console.log(notes);
-      fs.writeFile('./db/db.json', JSON.stringify(notes), () => {
-      console.log('Success!!');
-      // res.send('Test');
-      res.sendFile(path.join(__dirname, "./public/notes.html"))
-    });
-    });
-});
   
   app.listen(PORT, () =>
     console.log(`App listening at http://localhost:${PORT}`)

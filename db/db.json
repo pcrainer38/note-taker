@@ -1,1 +1,17 @@
-[{"title":"Test Title","text":"Test text"},{"title":"Second Note","text":"Another Note"},{"title":"Third Note","text":"This is the third note"},{"title":"This Note","text":"This is a note"},{"title":"Another note","text":"This is another note"},{"title":"Test note","text":"test note"}]
+[
+    {
+        "title": "Test note 1",
+        "text": "This is a test",
+        "id": "1e7e7f33-e5a3-4c5a-a6b1-b2907b34d9d7"
+    },
+    {
+        "title": "Another test",
+        "text": "testing",
+        "id": "d7b829f0-9dbe-4f58-aa68-538c933f9fc3"
+    },
+    {
+        "title": "Call bank",
+        "text": "discuss opening an account",
+        "id": "8fe4814b-15f3-4ecd-b214-c21560b79bb0"
+    }
+]

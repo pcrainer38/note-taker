@@ -3,15 +3,15 @@ const {v4: uuidv4} = require('uuid');
 const {
     readFromFile,
     readAndAppend,
-} = require('../helpers/fsUtils');
+} = require('../../helpers/fsUtils');
 
 // GET Route for retrieving all the
-notes.get('/', (req, res) => {
+notes.get('/notes', (req, res) => {
     readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 });
 
 // GET Route for a specific note
-notes.get('/:note_id', (req, res) => {
+notes.get('/notes/:note_id', (req, res) => {
     const noteID = req.params.note_id;
     readFromFile('./db/db.json')
         .then((data) => JSON.parse(data))
@@ -24,7 +24,7 @@ notes.get('/:note_id', (req, res) => {
 });
 
 // POST Route for a new note
-notes.post('/', (req, res) => {
+notes.post('/notes', (req, res) => {
     console.log(req.body);
 
     const { title, text, note_id } = req.body;
@@ -33,10 +33,10 @@ notes.post('/', (req, res) => {
         const newNote = {
             title: req.body.title,
             text: req.body.text,
-            note_id: uuidv4(),
+            id: uuidv4(),
         };
 
-        notes.push(newNote);
+        
 
         readAndAppend(newNote, './db/db.json');
         res.json('Note added successfully');
